@@ -26,7 +26,7 @@ public class LogginLabTest {
 
         for (Integer i = 1; i <= finalLimit; i++) {
             if (lab.thresholdExceeds(i)) {
-                logger.log(Level.INFO, "Threshold not reached! It is "+i);
+                logger.log(Level.INFO, "Threshold not reached! It is " + i);
                 assertTrue(lab.thresholdExceeds(i));
             } else {
                 logger.log(Level.INFO, "Threshold finally reached!");
@@ -44,16 +44,19 @@ public class LogginLabTest {
 
 
         // When
-        for(int i = 1; i<=expectedLimit; i++){
-            if(lab.thresholdReached(i)){
-                // Then
-                Assert.assertTrue(lab.thresholdReached(10));
+        for (int i = 1; i <= expectedLimit; i++) {
+                if (lab.thresholdReached(i)) {
+                    logger.log(Level.INFO, "Threshold not reached! It is " + i);
+                    assertTrue(lab.thresholdReached(i));
+                } else {
+                    logger.log(Level.INFO, "Threshold finally reached!");
+                    assertFalse(lab.thresholdReached(i));
+                }
             }
-
         }
-
-
     }
 
 
-}
+
+
+
